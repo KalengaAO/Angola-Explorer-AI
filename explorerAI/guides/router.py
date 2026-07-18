@@ -80,7 +80,7 @@ def update_guide(
 
     return db_guide
 
-    @router.delete("/{guide_id}")
+@router.delete("/{guide_id}")
 def delete_guide(
     guide_id: int,
     db: Session = Depends(get_db)
