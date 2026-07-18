@@ -225,7 +225,7 @@ By combining Artificial Intelligence with local knowledge, Angola Explorer AI ai
 
 ---
 
-# 👥 Team
+#  worksolo
 
 Developed during **OpenAI Build Week**.
 
