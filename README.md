@@ -4,9 +4,9 @@
 
 ## 📖 Overview
 
-Planning a trip to a new destination can be difficult. Travelers often spend hours searching for attractions, understanding local culture, finding reliable guides, and building an itinerary.
+Planning a trip to a new destination can be complicated. Travelers often spend hours searching for attractions, familiarizing themselves with the local culture, finding reliable guides, and putting together an itinerary.
 
-**Angola Explorer AI** simplifies this process by combining an intelligent AI agent with a curated tourism database. Instead of browsing dozens of websites, travelers simply describe what they are looking for in natural language, and the AI recommends destinations, attractions, and local guides that best match their interests.
+** Angola Explorer AI ** simplifies this process by combining an intelligent AI agent with a carefully curated tourism database. Instead of browsing dozens of websites, travelers simply describe what they’re looking for in natural language, and the AI recommends destinations, attractions, and local guides that best match their interests, processing real-world data to ensure reliability.
 
 ---
 
