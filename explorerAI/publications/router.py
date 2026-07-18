@@ -1,31 +1,110 @@
-from datetime import datetime
+from fastapi import APIRouter, Depends, HTTPException
+from sqlalchemy.orm import Session
 
-from pydantic import BaseModel
-
-
-class PublicationBase(BaseModel):
-    user_id: int
-    title: str
-    content: str
-    category: str | None = None
-    photo: str | None = None
+from explorerAI.database import get_db
+from . import models, schema
 
 
-class PublicationCreate(PublicationBase):
-    pass
+router = APIRouter(
+    prefix="/publications",
+    tags=["publications"]
+)
 
 
-class PublicationUpdate(BaseModel):
-    title: str | None = None
-    content: str | None = None
-    category: str | None = None
-    photo: str | None = None
+@router.post("/", response_model=schema.PublicationResponse)
+def create_publication(
+    publication: schema.PublicationCreate,
+    db: Session = Depends(get_db)
+):
+    db_publication = models.Publication(
+        **publication.model_dump()
+    )
+
+    db.add(db_publication)
+    db.commit()
+    db.refresh(db_publication)
+
+    return db_publication
 
 
-class PublicationResponse(PublicationBase):
-    id: int
-    created_at: datetime
-    updated_at: datetime | None = None
+@router.get("/", response_model=list[schema.PublicationResponse])
+def get_publications(
+    db: Session = Depends(get_db)
+):
+    return db.query(models.Publication).all()
 
-    class Config:
-        from_attributes = True
+
+@router.get("/{publication_id}", response_model=schema.PublicationResponse)
+def get_publication(
+    publication_id: int,
+    db: Session = Depends(get_db)
+):
+    publication = (
+        db.query(models.Publication)
+        .filter(models.Publication.id == publication_id)
+        .first()
+    )
+
+    if not publication:
+        raise HTTPException(
+            status_code=404,
+            detail="Publication not found"
+        )
+
+    return publication
+
+
+@router.put("/{publication_id}", response_model=schema.PublicationResponse)
+def update_publication(
+    publication_id: int,
+    publication: schema.PublicationUpdate,
+    db: Session = Depends(get_db)
+):
+    db_publication = (
+        db.query(models.Publication)
+        .filter(models.Publication.id == publication_id)
+        .first()
+    )
+
+    if not db_publication:
+        raise HTTPException(
+            status_code=404,
+            detail="Publication not found"
+        )
+
+    update_data = publication.model_dump(
+        exclude_unset=True
+    )
+
+    for key, value in update_data.items():
+        setattr(db_publication, key, value)
+
+    db.commit()
+    db.refresh(db_publication)
+
+    return db_publication
+
+
+@router.delete("/{publication_id}")
+def delete_publication(
+    publication_id: int,
+    db: Session = Depends(get_db)
+):
+    publication = (
+        db.query(models.Publication)
+        .filter(models.Publication.id == publication_id)
+        .first()
+    )
+
+    if not publication:
+        raise HTTPException(
+            status_code=404,
+            detail="Publication not found"
+        )
+
+    db.delete(publication)
+    db.commit()
+
+    return {
+        "message": "Publication deleted successfully"
+    }
