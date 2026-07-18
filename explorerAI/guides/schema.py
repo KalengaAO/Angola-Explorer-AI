@@ -22,3 +22,11 @@ class GuideResponse(GuideBase):
 
     class Config:
         from_attributes = True
+
+class GuideUpdate(BaseModel):
+    name: str | None = None
+    email: str | None = None
+    city: str | None = None
+    biography: str | None = None
+    experience_years: int | None = None
+    photo: str | None = None
