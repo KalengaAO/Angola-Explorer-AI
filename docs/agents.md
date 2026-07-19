@@ -42,6 +42,7 @@ Depois junta tudo.
 ## prompts.py
 
 Aqui ficam todos os prompts.
+
 Por exemplo:
 Você é um assistente turístico especializado em Angola...
 Assim os prompts não ficam espalhados pelo código.
@@ -56,3 +57,56 @@ search_destinations()
 search_reviews()
 search_attractions()
 Essas funções vão utilizar o knowledge/service.py.
+
+                     USER
+
+                       │
+
+                 POST /chat
+
+                       │
+
+                  FastAPI Router
+
+                       │
+
+                  RAG AGENT
+
+                       │
+
+        ┌──────────────┼──────────────┐
+
+        │              │              │
+
+ Guide Agent    Recommendation     Knowledge
+
+        │              │
+
+        └──────────────┼──────────────┘
+
+                  tools.py
+
+                       │
+
+               knowledge/service.py
+
+                       │
+
+                  SQLAlchemy
+
+                       │
+
+                    SQLite
+
+Ou seja, em vez de criar novos CRUDs, vamos fazer o sistema responder perguntas como:
+
+"Quero visitar o Namibe durante a época seca. Que atrações existem? Que guia fala inglês e tem boas avaliações?"
+
+Para responder isso, o agente terá de:
+
+Procurar o destino.
+Obter as atrações relacionadas.
+Encontrar guias associados.
+Filtrar por idioma.
+Considerar as avaliações.
+Montar uma resposta coerente.

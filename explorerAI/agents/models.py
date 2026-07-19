@@ -1,3 +1,23 @@
-from django.db import models
+from pydantic import BaseModel
 
-# Create your models here.
+
+class AgentRequest(BaseModel):
+    question: str
+    language: str | None = None
+
+
+class AgentResponse(BaseModel):
+    answer: str
+
+
+class AgentContext(BaseModel):
+    destinations: list = []
+    guides: list = []
+    attractions: list = []
+    reviews: list = []
+    knowledge: list = []
+
+
+class ToolResult(BaseModel):
+    source: str
+    data: dict | list
