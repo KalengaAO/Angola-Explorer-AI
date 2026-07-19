@@ -12,6 +12,9 @@ nvm install 22
 nvm use 22
 node -v
 npm create vite@latest frontend
+npm install react-router-dom
+
+
 
 Fechar o backend (revisão rápida dos CRUDs).
 Preparar o knowledge/service.py para centralizar o acesso ao conhecimento.

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { apiFetch } from "../api/api";
+import DestinationCard from "../components/DestinationCard";
 
 function Destinations() {
     const [destinations, setDestinations] = useState([]);
@@ -37,13 +38,10 @@ function Destinations() {
                 <p>Nenhum destino encontrado.</p>
             ) : (
                 destinations.map((destination) => (
-                    <div key={destination.id}>
-                        <h2>{destination.name}</h2>
-
-                        <p>{destination.description}</p>
-
-                        <hr />
-                    </div>
+                    <DestinationCard
+                        key={destination.id}
+                        destination={destination}
+                    />
                 ))
             )}
         </div>
