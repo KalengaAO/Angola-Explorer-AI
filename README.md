@@ -12,39 +12,6 @@ The system analyzes the request, retrieves relevant tourism information, and pro
 
 ---
 
-# 🚨 The Problem
-
-Angola has extraordinary tourism potential, including deserts, beaches, waterfalls, mountains, historical sites, and cultural experiences.
-
-However, travelers often face several challenges:
-
-- Tourism information is scattered across different sources.
-- Many destinations are unknown internationally.
-- Finding reliable local guides can be difficult.
-- Visitors may not know the best season, location, or type of experience available.
-- Traditional search systems provide generic results and do not consider personal preferences.
-
-For international visitors, language barriers and lack of local knowledge make trip planning even more challenging.
-
----
-
-# 💡 The Solution
-
-Angola Explorer AI provides a conversational tourism assistant that connects travelers with Angola's destinations and local experiences.
-
-Users can simply explain what they are looking for, and the platform recommends:
-
-- Tourist destinations
-- Attractions
-- Local experiences
-- Tourism categories
-- Suitable guides
-- Languages and specialties
-
-The goal is to transform tourism discovery from a manual search process into a personalized conversation.
-
----
-
 # 🤖 AI Development: Codex & GPT-5.6
 
 Angola Explorer AI was developed with assistance from OpenAI technologies, using AI as a development partner throughout the project lifecycle.
@@ -54,8 +21,6 @@ Angola Explorer AI was developed with assistance from OpenAI technologies, using
 GPT-5.6 supported the development process by helping with:
 
 - System architecture design
-- Multi-agent architecture planning
-- Database modeling decisions
 - API design with FastAPI
 - Frontend component structure with React
 - Code review and debugging
@@ -70,12 +35,8 @@ GPT-5.6 was used as an engineering assistant to analyze problems, suggest implem
 
 Codex was used as a coding assistant for:
 
-- Generating and improving backend components
-- Creating FastAPI endpoints
-- Structuring React components
-- Refactoring repetitive code
 - Debugging implementation issues
-- Accelerating development iterations
+- codex had been used to creat agent
 
 The development workflow combined human decision-making with AI-assisted coding, allowing faster experimentation and iteration.
 
@@ -112,17 +73,6 @@ Responsible for:
 ## Database
 
 SQLite
-
-Stores:
-
-- Destinations
-- Attractions
-- Guides
-- Reviews
-- Tourism information
-
-
----
 
 # 🚀 Future Vision
 
