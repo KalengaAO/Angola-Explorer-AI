@@ -1,14 +1,4 @@
-
-
 ### Resultado esperado
-
-``` bash
-docker compose up --build
-```
-
-API: http://localhost:8000
-
-Swagger: http://localhost:8000/docs
 
 ### Entidade Guide
 

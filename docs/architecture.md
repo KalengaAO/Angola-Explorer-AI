@@ -1,14 +1,5 @@
 # Roadmap do MVP *** AGENTE RAG ***
 
-✅ Revisão rápida dos CRUDs (PUT/DELETE onde faltar). -1
-✅ Criar a pasta agents/.
-✅ Refatorar knowledge/service.py para ser o ponto central de acesso aos dados.
-✅ Criar o primeiro agente (Guide Agent), capaz de responder perguntas usando os dados do banco.
-✅ Integrar esse agente com um endpoint do FastAPI, por exemplo:
-
-Mostrar capacidade de engenharia e IA.
-Perder tempo com infraestrutura que não agrega valor ao avaliador.
-
 ## Sprint 1 --- Infraestrutura
 
 ## Role:

@@ -170,8 +170,6 @@ The AI searches for guides matching these characteristics before generating reco
 ## Frontend
 
 * React
-* Next.js
-* Tailwind CSS
 
 ## Backend
 
@@ -179,23 +177,16 @@ The AI searches for guides matching these characteristics before generating reco
 
 ## Database
 
-* PostgreSQL
+* SQLite
 
 ## AI
 
-* OpenAI Responses API
-* Embeddings
+* Agent AI
 * Retrieval-Augmented Generation (RAG)
 
 ## Storage
 
 * Cloudinary / Local Storage
-
-## Maps
-
-* OpenStreetMap
-
----
 
 # 📂 Future Features
 
