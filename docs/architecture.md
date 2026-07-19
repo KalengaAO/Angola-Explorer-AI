@@ -1,12 +1,10 @@
 # Roadmap do MVP *** AGENTE RAG ***
 
-Definir a arquitetura e as entidades.
-Configurar Docker + FastAPI + SQLlite.
-Implementar autenticação (JWT com papéis admin, guide e user).
-Desenvolver o CRUD de Guides.
-Adicionar publicações, comentários, gostos e recomendações.
-Construir um frontend simples para gerir e visualizar os guias.
-Só então implementar os agentes, usando os dados que já existem.
+✅ Revisão rápida dos CRUDs (PUT/DELETE onde faltar). -1
+✅ Criar a pasta agents/.
+✅ Refatorar knowledge/service.py para ser o ponto central de acesso aos dados.
+✅ Criar o primeiro agente (Guide Agent), capaz de responder perguntas usando os dados do banco.
+✅ Integrar esse agente com um endpoint do FastAPI, por exemplo:
 
 Mostrar capacidade de engenharia e IA.
 Perder tempo com infraestrutura que não agrega valor ao avaliador.
@@ -54,22 +52,66 @@ Angola-exploer-AI/
     hooks/
     types/
 
-    Angola Explorer AI
+                  Angola Explorer AI
 
-        ┌─────────────────┐
-        │    Tourist      │
-        │  (Frontend)     │
-        └────────┬────────┘
-                 │
-                 │
-        ┌────────▼────────┐
-        │    FastAPI      │
-        │   Backend       │
-        └────────┬────────┘
-                 │
-     ┌───────────┴───────────┐
-     │                       │
-┌────▼─────┐          ┌──────▼─────┐
-│Knowledge │          │ AI Agent   │
-│ Database │          │   RAG      │
-└──────────┘          └────────────┘
+                 ┌─────────────────┐
+                 │    Tourist      │
+                 │   Frontend      │
+                 └────────┬────────┘
+                          │
+                          │ HTTP Request
+                          ▼
+
+                 ┌─────────────────┐
+                 │    FastAPI      │
+                 │     Router      │
+                 └────────┬────────┘
+                          │
+                          │ Validate Request
+                          │ Pydantic Schema
+                          ▼
+
+        ┌────────────────────────────────┐
+        │          Business Layer        │
+        │                                │
+        │  guides                        │
+        │  destinations                  │
+        │  attractions                   │
+        │  reviews                       │
+        │  publications                  │
+        │  guide_languages               │
+        │  guide_specialties             │
+        │  guide_photos                  │
+        └───────────────┬────────────────┘
+                        │
+                        │ SQLAlchemy ORM
+                        ▼
+
+              ┌─────────────────┐
+              │    SQLite DB    │
+              │  exploreAI.db   │
+              └────────┬────────┘
+                       │
+                       │ Extract Information
+                       ▼
+
+              ┌─────────────────┐
+              │    Knowledge    │
+              │     Layer       │
+              └────────┬────────┘
+                       │
+                       │ Prepared Context
+                       ▼
+
+              ┌─────────────────┐
+              │    AI Agent     │
+              │      RAG        │
+              └────────┬────────┘
+                       │
+                       │ Recommendation
+                       ▼
+
+              ┌─────────────────┐
+              │     Tourist     │
+              │    Response     │
+              └─────────────────┘

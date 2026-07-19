@@ -1,2 +1,8 @@
 pip install pydantic
 pip install fastapi uvicorn sqlalchemy
+
+
+Fechar o backend (revisão rápida dos CRUDs).
+Preparar o knowledge/service.py para centralizar o acesso ao conhecimento.
+Construir a primeira versão do agente que consulta o banco e monta contexto para responder perguntas.
+Se sobrar tempo, integrar um modelo LLM (local ou via API) para gerar respostas em linguagem natural.

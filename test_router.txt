@@ -1,0 +1,396 @@
+testando router: 
+Módulo				Estado				Observação
+Users				✅					CRUD funcional
+Guides				✅					CRUD funcional
+Destinations		✅					CRUD funcional
+Attractions			✅					Relacionado com Destination
+Guide Languages		✅					Relacionado com Guide
+Guide Specialties	✅					Relacionado com Guide
+Guide Photos		✅					Estrutura pronta
+Reviews				✅					Relaciona User + Guide + Destination
+Publications		✅					Funcional
+Posts				✅					Funcional
+Knowledge			✅					CRUD funcional
+
+POST: 
+http://127.0.0.1:8000/attractions/
+ {
+  "destination_id": 1,
+  "name": "Deserto do Namibe",
+  "description": "Uma das regiões naturais mais conhecidas de Angola.",
+  "history": "Região com grande importância cultural.",
+  "category": "Natureza",
+  "latitude": -15.19,
+  "longitude": 12.15,
+  "photo": "namibe.jpg"
+}
+
+GET
+http://127.0.0.1:8000/attractions/1
+{
+	"destination_id": 1,
+	"name": "Deserto do Namibe",
+	"description": "Uma das regiões naturais mais conhecidas de Angola.",
+	"history": "Região com grande importância cultural.",
+	"category": "Natureza",
+	"latitude": -15.19,
+	"longitude": 12.15,
+	"photo": "namibe.jpg",
+	"id": 1,
+	"created_at": "2026-07-19T00:16:22",
+	"updated_at": null
+}
+
+PUT
+http://127.0.0.1:8000/attractions/1
+{
+	"destination_id": 1,
+	"name": "Deserto do Namibe",
+	"description": "Uma das regiões naturais mais conhecidas de Angola.",
+	"history": "Região com grande importância cultural.",
+	"category": "Natureza",
+	"latitude": -15.19,
+	"longitude": 12.15,
+	"photo": "namibe.jpg",
+	"id": 1,
+	"created_at": "2026-07-19T00:16:22",
+	"updated_at": null
+}
+
+DELETE
+http://127.0.0.1:8000/attractions/1
+{
+	"message": "Attraction deleted successfully"
+}
+
+POST
+http://127.0.0.1:8000/destinations/
+{
+  "name": "Namibe",
+  "province": "Namibe",
+  "city": "Moçâmedes",
+  "description": "Província conhecida pelas paisagens desérticas e litoral.",
+  "category": "Natureza",
+  "history": "Região com grande importância cultural.",
+  "best_season": "Maio a Setembro",
+  "photo": "namibe.jpg",
+  "latitude": -15.19,
+  "longitude": 12.15
+}
+
+GET
+http://127.0.0.1:8000/destinations/1
+{
+	"name": "Namibe",
+	"province": "Namibe",
+	"city": "Moçâmedes",
+	"description": "Província conhecida pelas paisagens desérticas e litoral.",
+	"history": "Região com grande importância cultural.",
+	"category": "Natureza",
+	"latitude": -15.19,
+	"longitude": 12.15,
+	"best_season": "Maio a Setembro",
+	"photo": "namibe.jpg",
+	"id": 1,
+	"created_at": "2026-07-19T00:41:14",
+	"updated_at": null
+}
+
+PUT
+http://127.0.0.1:8000/destinations/1
+
+{
+	"name": "Namibe",
+	"province": "Namibe",
+	"city": "Moçâmedes",
+	"description": "Província conhecida pelas paisagens desérticas e litoral.",
+	"history": "Região com grande importância cultural.",
+	"category": "Deserto",
+	"latitude": -15.19,
+	"longitude": 12.15,
+	"best_season": "Maio a Setembro",
+	"photo": "namibe.jpg",
+	"id": 1,
+	"created_at": "2026-07-19T00:41:14",
+	"updated_at": "2026-07-19T08:25:10"
+}
+
+DELETE
+http://127.0.0.1:8000/destinations/1
+{
+	"message": "Destination deleted successfully"
+}
+
+POST
+http://127.0.0.1:8000/guide-languages/
+{
+  "guide_id": 1,
+  "language": "English"
+}
+
+GET
+http://127.0.0.1:8000/guide-languages/1
+{
+	"guide_id": 1,
+	"language": "English",
+	"id": 1,
+	"created_at": "2026-07-19T00:23:23"
+}
+
+PUT
+http://127.0.0.1:8000/guide-languages/1
+{
+	"guide_id": 1,
+	"language": "France",
+	"id": 1,
+	"created_at": "2026-07-19T00:23:23"
+}
+
+DELETE
+http://127.0.0.1:8000/guide-languages/1
+{
+	"message": "Guide language deleted successfully"
+}
+
+POST
+http://127.0.0.1:8000/guide-specialties/
+{
+  "guide_id": 1,
+  "specialty": "Ecoturismo"
+}
+
+GET
+http://127.0.0.1:8000/guide-specialties/1
+{
+	"guide_id": 1,
+	"specialty": "Ecoturismo",
+	"id": 1,
+	"created_at": "2026-07-19T00:25:52"
+}
+
+PUT
+http://127.0.0.1:8000/guide-specialties/1
+{
+	"guide_id": 1,
+	"specialty": "Gastronomia",
+	"id": 1,
+	"created_at": "2026-07-19T00:25:52"
+}
+
+DELETE
+http://127.0.0.1:8000/guide-specialties/1
+{
+	"message": "Guide specialty deleted successfully"
+}
+
+POST
+http://127.0.0.1:8000/knowledge/
+{
+  "title": "Guia especializado em Namibe",
+  "content": "João é guia turístico especializado em ecoturismo e conhece o deserto do Namibe.",
+  "source_type": "guide",
+  "source_id": 1
+}
+
+GET and PUT 
+http://127.0.0.1:8000/knowledge/1
+{
+	"title": "Guia especializado em Namibe",
+	"content": "João é guia turístico especializado em ecoturismo e conhece o deserto do Lubando.",
+	"source_type": "guide",
+	"source_id": 1,
+	"id": 1,
+	"created_at": "2026-07-19T00:27:20",
+	"updated_at": "2026-07-19T00:28:38"
+}
+
+PUT
+http://127.0.0.1:8000/knowledge/1
+{
+	"title": "Guia especializado em Namibe",
+	"content": "Pedro é guia turístico especializado em ecoturismo e conhece o deserto do Lubando.",
+	"source_type": "guide",
+	"source_id": 1,
+	"id": 1,
+	"created_at": "2026-07-19T00:27:20",
+	"updated_at": "2026-07-19T08:30:18"
+}
+
+DELETE
+http://127.0.0.1:8000/knowledge/1
+{
+	"message": "Knowledge deleted successfully"
+}
+
+
+POST
+http://127.0.0.1:8000/reviews/
+{
+  "user_id": 1,
+  "guide_id": 1,
+  "destination_id": 1,
+  "rating": 5,
+  "comment": "Excelente guia, muito conhecedor da região."
+}
+
+GET
+http://127.0.0.1:8000/reviews/
+{
+	"name": "João Silva",
+	"email": "joao@explore.ai",
+	"city": "Lubango",
+	"biography": "Guia especializado em ecoturismo e cultura local.",
+	"experience_years": 8,
+	"photo": "joao.jpg",
+	"id": 1,
+	"created_at": "2026-07-19T00:12:39",
+	"updated_at": null
+}
+
+PUT
+http://127.0.0.1:8000/reviews/
+{
+	"user_id": 1,
+	"guide_id": null,
+	"destination_id": 1,
+	"rating": 5,
+	"comment": "Excelente guia, muito conhecedor da região, prestativo.",
+	"id": 1,
+	"created_at": "2026-07-19T06:41:18",
+	"updated_at": "2026-07-19T08:31:45"
+}
+
+DELETE
+http://127.0.0.1:8000/reviews/
+{
+	"message": "Review deleted successfully"
+}
+
+POST
+http://127.0.0.1:8000/publications/
+{
+  "user_id": 1,
+  "guide_id": 1,
+  "title": "Passeio pelo Deserto do Namibe",
+  "content": "Venha conhecer uma das paisagens mais impressionantes de Angola.",
+  "photo": "deserto.jpg"
+}
+
+GET
+http://127.0.0.1:8000/publications/1
+{
+	"user_id": 1,
+	"title": "Passeio pelo Deserto do Namibe",
+	"content": "Venha conhecer uma das paisagens mais impressionantes de Angola.",
+	"category": null,
+	"photo": "deserto.jpg",
+	"id": 1,
+	"created_at": "2026-07-19T06:45:55",
+	"updated_at": null
+}
+
+PUT
+http://127.0.0.1:8000/publications/1
+{
+	"user_id": 1,
+	"title": "Passeio pelo Deserto do Namibe",
+	"content": "Venha conhecer uma das paisagens mais impressionantes de Angola.",
+	"category": null,
+	"photo": "praia_dos_trigres.jpg",
+	"id": 1,
+	"created_at": "2026-07-19T06:45:55",
+	"updated_at": "2026-07-19T08:32:57"
+}
+
+DELETE
+http://127.0.0.1:8000/publications/1
+{
+	"message": "Publication deleted successfully"
+}
+
+POST
+http://127.0.0.1:8000/posts/
+{
+  "user_id": 1,
+  "title": "Minha viagem ao Namibe",
+  "content": "Uma experiência inesquecível com paisagens incríveis.",
+  "photo": "viagem.jpg"
+}
+
+GET
+http://127.0.0.1:8000/posts/1
+{
+	"user_id": 1,
+	"title": "Minha viagem ao Namibe",
+	"content": "Uma experiência inesquecível com paisagens incríveis.",
+	"photo": "viagem.jpg",
+	"id": 1,
+	"created_at": "2026-07-19T06:47:11",
+	"updated_at": null
+}
+
+PUT
+http://127.0.0.1:8000/posts/1
+{
+	"user_id": 1,
+	"title": "Minha viagem ao Namibe",
+	"content": "Uma experiência inesquecível.",
+	"photo": "viagem.jpg",
+	"id": 1,
+	"created_at": "2026-07-19T06:47:11",
+	"updated_at": "2026-07-19T08:34:24"
+}
+
+DELETE
+http://127.0.0.1:8000/posts/1
+{
+	"message": "Post deleted successfully"
+}
+
+POST
+http://127.0.0.1:8000/guides/
+{
+	"name": "João Silva",
+	"email": "joao@explore.ai",
+	"city": "Lubango",
+	"biography": "Guia especializado em ecoturismo e cultura local.",
+	"experience_years": 8,
+	"photo": "joao.jpg",
+	"id": 1,
+	"created_at": "2026-07-19T00:12:39",
+	"updated_at": null
+}
+
+GET
+http://127.0.0.1:8000/guides/1
+{
+  "id": 1,
+  "name": "João Silva",
+  "email": "joao.silva@email.com",
+  "city": "Namibe",
+  "biography": "Guia turístico especializado em ecoturismo e história local de Angola.",
+  "experience_years": 8,
+  "photo": "joao_silva.jpg",
+  "created_at": "2026-07-19T22:00:00",
+  "updated_at": null
+}
+
+PUT
+http://127.0.0.1:8000/guides/1
+{
+	"name": "António Kalenga",
+	"email": "joao@explore.ai",
+	"city": "Lubango",
+	"biography": "Guia especializado em ecoturismo e cultura local.",
+	"experience_years": 8,
+	"photo": "joao.jpg",
+	"id": 1,
+	"created_at": "2026-07-19T00:12:39",
+	"updated_at": "2026-07-19T08:35:12"
+}
+
+DELETE
+http://127.0.0.1:8000/guides/1
+{
+	"message": "Guide deleted successfully"
+}
