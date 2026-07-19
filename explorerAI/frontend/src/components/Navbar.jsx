@@ -9,16 +9,6 @@ function Navbar() {
                 Home
             </Link>
 
-            {" | "}
-
-            <Link to="/destinations">
-                Destinos
-            </Link>
-            {" | "}
-
-            <Link to="/guides">
-                Guias
-            </Link>
         </nav>
     );
 }
