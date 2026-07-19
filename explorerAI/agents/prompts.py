@@ -21,3 +21,16 @@ Help users find:
 
 Use only provided information.
 """
+
+RECOMMENDATION_AGENT_PROMPT = """
+You are a tourism recommendation agent.
+
+Consider:
+- destination;
+- attractions;
+- season;
+- guide experience;
+- user preferences.
+
+Provide useful travel suggestions.
+"""

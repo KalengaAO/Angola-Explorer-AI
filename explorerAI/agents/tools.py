@@ -1,116 +1,43 @@
 from sqlalchemy.orm import Session
 
-from guides import models as guide_models
-from destinations import models as destination_models
-from attractions import models as attraction_models
-from reviews import models as review_models
-from knowledge import models as knowledge_models
-
-def search_guides(
-    db: Session,
-    city: str | None = None
-):
-    query = db.query(guide_models.Guide)
-
-    if city:
-        query = query.filter(
-            guide_models.Guide.city == city
-        )
-
-    return query.all()
+from knowledge import service
 
 
-def get_guide(
-    db: Session,
-    guide_id: int
-):
-    return (
-        db.query(guide_models.Guide)
-        .filter(
-            guide_models.Guide.id == guide_id
-        )
-        .first()
-    )
-
-def search_destinations(
-    db: Session,
-    name: str | None = None
-):
-    query = db.query(
-        destination_models.Destination
-    )
-
-    if name:
-        query = query.filter(
-            destination_models.Destination.name == name
-        )
-
-    return query.all()
+def search_guides(db: Session, city: str | None = None):
+    return service.search_guides(db, city)
 
 
-def get_destination(
-    db: Session,
-    destination_id: int
-):
-    return (
-        db.query(destination_models.Destination)
-        .filter(
-            destination_models.Destination.id == destination_id
-        )
-        .first()
-    )
+def get_guide(db: Session, guide_id: int):
+    return service.get_guide(db, guide_id)
 
 
-def get_attractions(
-    db: Session,
-    destination_id: int
-):
-    return (
-        db.query(attraction_models.Attraction)
-        .filter(
-            attraction_models.Attraction.destination_id
-            == destination_id
-        )
-        .all()
-    )
-
-def get_guide_reviews(
-    db: Session,
-    guide_id: int
-):
-    return (
-        db.query(review_models.Review)
-        .filter(
-            review_models.Review.guide_id
-            == guide_id
-        )
-        .all()
-    )
+def get_guide_languages(db: Session, guide_id: int):
+    return service.get_guide_languages(db, guide_id)
 
 
-def get_best_reviews(
-    db: Session,
-    limit: int = 5
-):
-    return (
-        db.query(review_models.Review)
-        .order_by(
-            review_models.Review.rating.desc()
-        )
-        .limit(limit)
-        .all()
-    )
+def get_guide_specialties(db: Session, guide_id: int):
+    return service.get_guide_specialties(db, guide_id)
 
 
-def search_knowledge(
-    db: Session,
-    keyword: str
-):
-    return (
-        db.query(knowledge_models.Knowledge)
-        .filter(
-            knowledge_models.Knowledge.content
-            .contains(keyword)
-        )
-        .all()
-    )
+def get_guide_reviews(db: Session, guide_id: int):
+    return service.get_guide_reviews(db, guide_id)
+
+
+def search_destinations(db: Session, name: str | None = None):
+    return service.search_destinations(db, name)
+
+
+def get_destination(db: Session, destination_id: int):
+    return service.get_destination(db, destination_id)
+
+
+def get_attractions(db: Session, destination_id: int):
+    return service.get_attractions(db, destination_id)
+
+
+def get_best_reviews(db: Session, limit: int = 5):
+    return service.get_best_reviews(db, limit)
+
+
+def search_knowledge(db: Session, keyword: str):
+    return service.search_knowledge(db, keyword)
