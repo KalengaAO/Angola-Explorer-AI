@@ -1,15 +1,7 @@
-function App() {
-  return (
-    <div>
-      <h1>
-        Angola Explorer AI
-      </h1>
+import Destinations from "./pages/Destinations";
 
-      <p>
-        Plataforma de turismo inteligente de Angola
-      </p>
-    </div>
-  );
+function App() {
+    return <Destinations />;
 }
 
 export default App;
