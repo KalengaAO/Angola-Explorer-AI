@@ -2,6 +2,17 @@ pip install pydantic
 pip install fastapi uvicorn sqlalchemy
 
 
+certificate de usar a versão correta de node
+sudo apt-get install npm -y
+node -v
+npm -v
+nvm -v
+source ~/.bashrc
+nvm install 22
+nvm use 22
+node -v
+npm create vite@latest frontend
+
 Fechar o backend (revisão rápida dos CRUDs).
 Preparar o knowledge/service.py para centralizar o acesso ao conhecimento.
 Construir a primeira versão do agente que consulta o banco e monta contexto para responder perguntas.
