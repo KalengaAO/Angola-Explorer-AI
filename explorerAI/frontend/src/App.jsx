@@ -4,13 +4,18 @@ import {
     Route
 } from "react-router-dom";
 
-import Home from "./pages/Home";
-import Destinations from "./pages/Destinations";
+
 import Navbar from "./components/Navbar";
-import Guides from "./pages/Guides";
+
+import Home from "./pages/Home";
+import Register from "./pages/Register";
+import GuideRegister from "./pages/GuideRegister";
+
 
 function App() {
+
     return (
+
         <BrowserRouter>
 
             <Navbar />
@@ -22,19 +27,22 @@ function App() {
                     element={<Home />}
                 />
 
-                <Route
-                    path="/destinations"
-                    element={<Destinations />}
-                />
 
                 <Route
-                    path="/guides"
-                    element={<Guides />}
+                    path="/register"
+                    element={<Register />}
+                />
+
+
+                <Route
+                    path="/guide-register"
+                    element={<GuideRegister />}
                 />
 
             </Routes>
 
         </BrowserRouter>
+
     );
 }
 
