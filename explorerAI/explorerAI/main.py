@@ -16,7 +16,6 @@ from guide_languages import models as guide_language_models
 from guide_specialties import models as guide_specialty_models
 from knowledge import models as knowledge_models
 
-
 Base.metadata.create_all(bind=engine)
 
 
@@ -32,6 +31,7 @@ from guide_photos.router import router as guide_photo_router
 from guide_languages.router import router as guide_language_router
 from guide_specialties.router import router as guide_specialty_router
 from knowledge.router import router as knowledge_router
+from agents.router import router as agent_router
 
 
 app = FastAPI(
@@ -61,7 +61,7 @@ app.include_router(guide_photo_router)
 app.include_router(guide_language_router)
 app.include_router(guide_specialty_router)
 app.include_router(knowledge_router)
-
+app.include_router(agent_router)
 
 @app.get("/")
 def root():
