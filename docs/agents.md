@@ -1,4 +1,10 @@
 ### O papel de cada ficheiro
+melhorar RAG;
+adicionar embeddings;
+multilingual (PT/EN/FR);
+GuideAgent;
+RecommendationAgent mais inteligente;
+memória de conversação.
 ## base.py
 
 Será a classe base.
@@ -110,3 +116,7 @@ Encontrar guias associados.
 Filtrar por idioma.
 Considerar as avaliações.
 Montar uma resposta coerente.
+
+
+
+
