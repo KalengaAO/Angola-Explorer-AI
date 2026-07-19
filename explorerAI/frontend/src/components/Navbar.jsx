@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import "../style/Navbar.css";
 
+
 function Navbar() {
+
     return (
         <nav>
 
@@ -9,18 +11,14 @@ function Navbar() {
                 Angola Explorer AI
             </Link>
 
-            {" | "}
-
-            <Link to="/register">
-                Registar
-            </Link>
 
             {" | "}
 
-            <Link to="/guide-register">
-                Sou Guia
-            </Link>
 
+            <Link to="/community">
+                Comunidade
+            </Link>
+     
         </nav>
     );
 }

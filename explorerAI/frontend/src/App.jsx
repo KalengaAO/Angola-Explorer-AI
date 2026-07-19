@@ -6,10 +6,8 @@ import {
 
 
 import Navbar from "./components/Navbar";
-
+import Community from "./pages/Community";
 import Home from "./pages/Home";
-import Register from "./pages/Register";
-import GuideRegister from "./pages/GuideRegister";
 
 
 function App() {
@@ -28,15 +26,8 @@ function App() {
                 />
 
 
-                <Route
-                    path="/register"
-                    element={<Register />}
-                />
-
-
-                <Route
-                    path="/guide-register"
-                    element={<GuideRegister />}
+                <Route path="/community" 
+                element={<Community />} 
                 />
 
             </Routes>
